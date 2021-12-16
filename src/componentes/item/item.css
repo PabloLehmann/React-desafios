@@ -1,0 +1,13 @@
+.card{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    background-color: blanchedalmond;
+    border: solid 1px black;
+    margin: 10px;
+    width: 200px;
+}
+button{
+    color: white;
+    background-color: black;
+}

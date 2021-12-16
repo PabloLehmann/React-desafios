@@ -17,14 +17,14 @@ const ItemCount = ({stock, inicial, onAdd}) =>{
         
     }
    
-    const notify = () => toast("Agregado");
+    const notify = () => toast("Agregado" + contador);
 
 
     return (
         <div>
-            <h2>Contador : {contador}</h2>
-            <button onClick={sumar}>Sumar</button>
-            <button onClick={restar}>Restar</button>
+            <p>Contador : {contador}</p>
+            <button onClick={sumar}>+</button>
+            <button onClick={restar}>-</button>
             <button onClick={() => {onAdd( setContador); notify()}}>agregar</button>
             <ToastContainer />
         </div>
