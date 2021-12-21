@@ -1,7 +1,8 @@
-import ItemCount from "../itemCount/ItemCount";
 import ItemList from "../itemList/ItemList";
+import { useState, useEffect } from "react";
 
 const productos = ()=>{
+    
     return new Promise ((resolve, reject)=>{
         setTimeout(
             ()=> resolve( [
@@ -17,25 +18,26 @@ const productos = ()=>{
 }
 
 const ItemListContainer = ({nombre}) =>{
-    
-    const onAdd = (setContador) =>{
-        setContador (1)
+    const [cuadros, setCuadros] = useState([])
+    useEffect(() => {
+        productos().then((data)=>{
+            setCuadros(data)
+
+
+        })
         
-    }
+    }, [])
+    
+   
     return(
           <div>
 
                 <div>
                     <h2>Bienvenido {nombre} a nuentra galeria. </h2>
                 </div>
-
-                <div>
-                    <ItemCount stock ={5} inicial = {1} onAdd = {onAdd} />
-                    
-                </div>
                 
                 <div>
-                    <ItemList productos={productos}/>
+                    <ItemList cuadros={cuadros}/>
                 </div>
           </div>  
     )

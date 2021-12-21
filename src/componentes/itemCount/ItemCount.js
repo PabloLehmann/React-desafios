@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
 
 const ItemCount = ({stock, inicial, onAdd}) =>{
@@ -16,8 +16,15 @@ const ItemCount = ({stock, inicial, onAdd}) =>{
         } 
         
     }
+    
+    const agregar = () =>{
+        
+        setContador (inicial)
+        
+        
+    }
    
-    const notify = () => toast("Agregado" + contador);
+    
 
 
     return (
@@ -25,7 +32,7 @@ const ItemCount = ({stock, inicial, onAdd}) =>{
             <p>Contador : {contador}</p>
             <button onClick={sumar}>+</button>
             <button onClick={restar}>-</button>
-            <button onClick={() => {onAdd( setContador); notify()}}>agregar</button>
+            <button onClick={() => {onAdd( contador); agregar()}}>agregar</button>
             <ToastContainer />
         </div>
     )
