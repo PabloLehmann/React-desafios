@@ -1,15 +1,22 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./item.css";
 
-const Item = ({id, nombre, precio}) => {
+const Item = ({id, nombre, precio, href, img}) => {
+    const boton =()=>{
+        console.log("funciono")
+
+    }
+
    
     return(
         <div className="card" key={id}>
-            
+            <img src={img} alt="cuadro"/>
 
-                <p>{nombre}</p>
+                <h2>{nombre}</h2>
                 <p>{precio}</p>
-                <p>Ver detalle</p>
+                <button onClick={boton}><Link to={href}>Ver detalle</Link></button>
+                
                         
         
         </div>

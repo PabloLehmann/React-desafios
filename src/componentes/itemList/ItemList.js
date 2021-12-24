@@ -7,9 +7,9 @@ const ItemList = ({cuadros}) => {
     
     
     return(
-        <div>
+        <div className="container">
             {cuadros.map(item=>(
-                <Item key={item.id} nombre={item.nombre} precio={item.precio}/>
+                <Item key={item.id} nombre={item.nombre} precio={item.precio} href={item.href} img={item.img}/>
             ))}
         </div>
     );

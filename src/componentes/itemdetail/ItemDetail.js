@@ -14,11 +14,13 @@ function ItemDetail({cuadro}) {
     console.log(cuadro);
     return (
         <div className="card" key={cuadro.id}>
-                <img src={cuadro.img} alt="cuadro uno"/>
+                <img src={cuadro.img} alt="imagen de cuadro"/>
+                
                 <p>{cuadro.nombre}</p>
                 <p>{cuadro.precio}</p>
                 <p>{cuadro.medidas}</p>
                 {<ItemCount stock ={5} inicial = {1} onAdd = {onAdd}/>}
+
             
         </div>
     )

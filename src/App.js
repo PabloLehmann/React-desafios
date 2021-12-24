@@ -2,16 +2,34 @@
 import Header from "./componentes/header/Header";
 import ItemListContainer from "./componentes/itemListContainer/ItemListContainer"
 import ItemDetailContainer from "./componentes/itemDetailContainer/ItemDetailContainer";
-const App = () =>{
-    return(
-        <div className="App">
-            <div className="App-header">
-                <Header/>
-                <ItemListContainer nombre={"Alejandro"} />
-                <ItemDetailContainer/>
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Inicio from "./componentes/inicio/Inicio";
+import Artista from "./componentes/artista/Artista";
+import Impresiones from "./componentes/impresiones/Impresiones";
+import Carrito from "./componentes/carrito/Carrito";
 
-            </div>
-        </div>
+
+const App = () =>{
+
+    
+
+    return(
+        <BrowserRouter className="App">
+            <main className="App-header">
+                <Header/>
+                
+                <Routes>
+                    <Route path="/" element={<Inicio/>} />
+                    <Route path="/obrasOriginales" element={<ItemListContainer nombre={"Alejandro"} />}/>
+                    <Route path="/impresiones" element={<Impresiones/>}/>
+                    <Route path="/sobreElArtista" element={<Artista/>}/>
+                    <Route path="/carrito" element={<Carrito/>} />
+                    <Route path="/obrasOriginales/:id" element={<ItemDetailContainer/>} />
+                </Routes>
+                
+
+            </main>
+        </BrowserRouter>
 
     );
 }
