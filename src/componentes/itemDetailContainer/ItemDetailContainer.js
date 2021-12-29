@@ -25,6 +25,8 @@ function ItemDetailContainer() {
     const [cuadro,setCuadro] = useState({})
     const {id}=useParams()
 
+   
+
     useEffect(() => {
             cuadroInicial().then((data) =>{
                 const resultado = data.find( (cuadro) => 
@@ -34,11 +36,14 @@ function ItemDetailContainer() {
             })
         
     }, [id])
+    
+    
     return (
         <div>
             <ItemDetail cuadro={cuadro}/>
         </div>
     )
 }
+
 
 export default ItemDetailContainer
