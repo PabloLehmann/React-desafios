@@ -2,7 +2,8 @@ import ItemCount from "../itemCount/ItemCount"
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useState } from "react/cjs/react.development";
-
+import CartWidget from "../cartWidget/CartWidget";
+import { NavLink } from "react-router-dom";
 
 
 function ItemDetail({cuadro}) {
@@ -21,7 +22,7 @@ function ItemDetail({cuadro}) {
 
 
     console.log(cuadro);
-    if(mostrar){
+    /* if(mostrar){ */
     return (
         <div className="card" key={cuadro.id}>
                 <img src={cuadro.img} alt="imagen de cuadro"/>
@@ -29,12 +30,19 @@ function ItemDetail({cuadro}) {
                 <p>{cuadro.nombre}</p>
                 <p>{cuadro.precio}</p>
                 <p>{cuadro.medidas}</p>
-                <ItemCount stock ={5} inicial = {1} onAdd = {onAdd} borrar={borrar}/> 
+                {mostrar ? (
+                    <ItemCount stock ={5} inicial = {1} onAdd = {onAdd} borrar={borrar}/>
+
+                        ):(
+
+                <NavLink to="/Carrito"className="carrito"><CartWidget/></NavLink> 
+                        )}
+                {/* <ItemCount stock ={5} inicial = {1} onAdd = {onAdd} borrar={borrar}/> */}
 
             
         </div>
     )
-}else{
+/* }else{
     return (
         <div className="card" key={cuadro.id}>
                 <img src={cuadro.img} alt="imagen de cuadro"/>
@@ -42,9 +50,10 @@ function ItemDetail({cuadro}) {
                 <p>{cuadro.nombre}</p>
                 <p>{cuadro.precio}</p>
                 <p>{cuadro.medidas}</p>
+                <NavLink to="/Carrito" className="carrito"><CartWidget/></NavLink>
         </div>        
     )
 
 }
-}
+ */}
 export default ItemDetail
