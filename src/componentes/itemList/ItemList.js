@@ -9,7 +9,7 @@ const ItemList = ({cuadros}) => {
     return(
         <div className="container">
             {cuadros.map(item=>(
-                <Item key={item.id} nombre={item.nombre} precio={item.precio} href={item.href} img={item.img}/>
+                <Item key={item.id} nombre={item.nombre} precio={item.precio} href={item.href} img={item.img} categoria={item.categoria}/>
             ))}
         </div>
     );

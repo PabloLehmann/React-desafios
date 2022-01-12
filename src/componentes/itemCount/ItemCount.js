@@ -2,7 +2,7 @@ import { useState } from "react";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const ItemCount = ({stock, inicial, onAdd, borrar}) =>{
+const ItemCount = ({stock, inicial, onAdd, borrar, agregarAlCarrito, producto}) =>{
     const [contador, setContador] = useState(inicial);
    
     const sumar = () =>{
@@ -21,7 +21,7 @@ const ItemCount = ({stock, inicial, onAdd, borrar}) =>{
         
         setContador (inicial)
         
-        
+    
     }
    
     
@@ -32,7 +32,7 @@ const ItemCount = ({stock, inicial, onAdd, borrar}) =>{
             <p>Contador : {contador}</p>
             <button onClick={sumar}>+</button>
             <button onClick={restar}>-</button>
-            <button onClick={() => {onAdd( contador); agregar(); borrar()}}>agregar</button>
+            <button onClick={() => {onAdd( contador); agregar(); borrar(); agregarAlCarrito(producto.id, contador, producto)}}>agregar</button>
             <ToastContainer />
         </div>
     )

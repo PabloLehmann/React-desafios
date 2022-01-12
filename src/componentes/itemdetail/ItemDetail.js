@@ -2,8 +2,8 @@ import ItemCount from "../itemCount/ItemCount"
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useState } from "react/cjs/react.development";
-import CartWidget from "../cartWidget/CartWidget";
 import { NavLink } from "react-router-dom";
+import { useContexto } from "../myContext/MyContext";
 
 
 function ItemDetail({cuadro}) {
@@ -19,41 +19,29 @@ function ItemDetail({cuadro}) {
     const borrar = ()=>{
         setMostrar(!mostrar)
     }
-
-
-    console.log(cuadro);
-    /* if(mostrar){ */
+    
+    
+    const {agregarAlCarrito} = useContexto() 
+ 
     return (
         <div className="card" key={cuadro.id}>
                 <img src={cuadro.img} alt="imagen de cuadro"/>
                 
                 <p>{cuadro.nombre}</p>
+                <p>Categoria:{cuadro.categoria}</p>
                 <p>{cuadro.precio}</p>
                 <p>{cuadro.medidas}</p>
                 {mostrar ? (
-                    <ItemCount stock ={5} inicial = {1} onAdd = {onAdd} borrar={borrar}/>
+                    <ItemCount stock ={5} inicial = {1} onAdd = {onAdd} borrar={borrar} agregarAlCarrito={agregarAlCarrito} producto={cuadro} />
 
                         ):(
 
-                <NavLink to="/Carrito"className="carrito"><CartWidget/></NavLink> 
+                <NavLink to="/Carrito"className="carrito">Carrito</NavLink> 
                         )}
-                {/* <ItemCount stock ={5} inicial = {1} onAdd = {onAdd} borrar={borrar}/> */}
+                
 
             
         </div>
     )
-/* }else{
-    return (
-        <div className="card" key={cuadro.id}>
-                <img src={cuadro.img} alt="imagen de cuadro"/>
-                
-                <p>{cuadro.nombre}</p>
-                <p>{cuadro.precio}</p>
-                <p>{cuadro.medidas}</p>
-                <NavLink to="/Carrito" className="carrito"><CartWidget/></NavLink>
-        </div>        
-    )
-
 }
- */}
 export default ItemDetail

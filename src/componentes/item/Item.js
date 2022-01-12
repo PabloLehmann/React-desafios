@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./item.css";
 
-const Item = ({id, nombre, precio, href, img}) => {
+const Item = ({id, nombre, precio, href, img, categoria}) => {
     const boton =()=>{
         console.log("funciono")
 
@@ -14,6 +14,7 @@ const Item = ({id, nombre, precio, href, img}) => {
             <img src={img} alt="cuadro"/>
 
                 <h2>{nombre}</h2>
+                <h2>{categoria}</h2>
                 <p>{precio}</p>
                 <button onClick={boton}><Link to={href}>Ver detalle</Link></button>
                 

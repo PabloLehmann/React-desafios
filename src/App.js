@@ -7,6 +7,7 @@ import Inicio from "./componentes/inicio/Inicio";
 import Artista from "./componentes/artista/Artista";
 import Impresiones from "./componentes/impresiones/Impresiones";
 import Carrito from "./componentes/carrito/Carrito";
+import CustomProvider from "./componentes/myContext/MyContext";
 
 
 const App = () =>{
@@ -14,6 +15,9 @@ const App = () =>{
     
 
     return(
+        <CustomProvider>
+
+        
         <BrowserRouter className="App">
             <main className="App-header">
                 <Header/>
@@ -30,6 +34,8 @@ const App = () =>{
 
             </main>
         </BrowserRouter>
+        
+        </CustomProvider>
 
     );
 }
