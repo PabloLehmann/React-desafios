@@ -3,7 +3,7 @@ import CartWidget from "../cartWidget/CartWidget";
 import { NavLink } from "react-router-dom";
 const Navbar =()=>{
     const links =[
-        {href:"/obrasOriginales", categoria:"Obras originales", id:1},
+        {href:"/original", categoria:"Obras Originales", id:1},
         {href:"/impresiones", categoria:"Impresiones", id:2},
         {href:"/sobreElArtista", categoria:"Sobre el artista", id:3},
         

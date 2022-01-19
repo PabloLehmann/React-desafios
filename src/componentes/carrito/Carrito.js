@@ -12,7 +12,7 @@ const Carrito = () => {
     <>
     {carrito.length===0 ?(
         <div>
-            <h2>No hay productos en su carrito</h2>
+            <h1>No hay productos en su carrito</h1>
             <NavLink to="/"><button>Ir a Inicio</button></NavLink> 
         </div>
     ):(

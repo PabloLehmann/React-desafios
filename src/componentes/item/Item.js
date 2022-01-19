@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./item.css";
 
-const Item = ({id, nombre, precio, href, img, categoria}) => {
+const Item = (props) => {
     const boton =()=>{
         console.log("funciono")
 
@@ -10,13 +10,13 @@ const Item = ({id, nombre, precio, href, img, categoria}) => {
 
    
     return(
-        <div className="card" key={id}>
-            <img src={img} alt="cuadro"/>
+        <div className="card" key={props.producto.id}>
+            <img src={props.producto.img} alt="cuadro"/>
 
-                <h2>{nombre}</h2>
-                <h2>{categoria}</h2>
-                <p>{precio}</p>
-                <button onClick={boton}><Link to={href}>Ver detalle</Link></button>
+                <h2>{props.producto.nombre}</h2>
+                <h2>{props.producto.categoria}</h2>
+                <p>{props.producto.precio}</p>
+                <button onClick={boton}><Link to={`/cuadros/${props.producto.id}`}>Ver detalle</Link></button>
                 
                         
         

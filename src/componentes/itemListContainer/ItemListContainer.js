@@ -1,33 +1,39 @@
 import ItemList from "../itemList/ItemList";
 import { useState, useEffect } from "react";
+import { db } from "../../firebase";
+import {getDocs, collection, query, where} from "firebase/firestore"
+import { useParams } from "react-router-dom";
 
 
-const productos = ()=>{
-    
-    return new Promise ((resolve, reject)=>{
-        setTimeout(
-            ()=> resolve( [
-                {id:"1", nombre: "cuadro 1", categoria: "original", precio:"$1000", medidas: "50x50", href: "/obrasOriginales/1",img:"https://drive.google.com/uc?export=view&id=1BQZgdDB_2SwtsOA6B0bLY5fipw6WNWPg"},
-                {id:"2", nombre: "cuadro 2", categoria: "original",precio:"$3000", medidas: "80x50", href: "/obrasOriginales/2",img:"https://drive.google.com/uc?export=view&id=1BQZgdDB_2SwtsOA6B0bLY5fipw6WNWPg"},
-                {id:"3", nombre: "cuadro 3", categoria: "impresion",precio:"$2000", medidas: "70x50", href: "/obrasOriginales/3",img:"https://drive.google.com/uc?export=view&id=1BQZgdDB_2SwtsOA6B0bLY5fipw6WNWPg"},
-                {id:"4", nombre: "cuadro 4", categoria: "impresion",precio:"$16000", medidas: "100x50", href: "/obrasOriginales/4",img:"https://drive.google.com/uc?export=view&id=1BQZgdDB_2SwtsOA6B0bLY5fipw6WNWPg"},
-            ]),3000
 
-       )
-        
-    })
-}
+
+
 
 const ItemListContainer = ({nombre}) =>{
     const [cuadros, setCuadros] = useState([])
+    const {categoria} = useParams()
     useEffect(() => {
-        productos().then((data)=>{
-            setCuadros(data)
+        const coleccion = collection(db, "productos")
 
+        if(categoria){
+            const queryCategoria= query(coleccion, where("categoria", "==", categoria))
+            getDocs(queryCategoria)
+            .then( ({docs})=>{setCuadros(docs.map((doc)=>({id: doc.id, ...doc.data()})))
+            })
+            .catch((error)=>{
+                console.log(error);
 
-        })
-        
-    }, [])
+            })
+        }else{
+            getDocs(coleccion)
+            .then( ({docs})=>{setCuadros(docs.map((doc)=>({id: doc.id, ...doc.data()})))
+            })
+            .catch((error)=>{
+                console.log(error);
+
+            })
+        }        
+    }, [categoria])
     
     
    
@@ -35,7 +41,7 @@ const ItemListContainer = ({nombre}) =>{
           <>
 
                 <div>
-                    <h2>Bienvenido {nombre} a nuentra galeria. </h2>
+                    <h1>Bienvenido {nombre} a nuentra galeria. </h1>
                 </div>
                 
                 <div>
