@@ -1,7 +1,8 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import Navbar from "../navbar/Navbar";
-import "./header.css"
+import "../style/style.css";
+
 
 const Header = ()=>{
     
@@ -10,7 +11,7 @@ const Header = ()=>{
                 <div className ="nombre-artista">
 
                     <h3>Galeria virtual</h3>
-                    <NavLink to="/"><h1>Pablo Lehmann</h1></NavLink>
+                    <NavLink to="/" ><h1>Pablo Lehmann</h1></NavLink>
                     
             
                 

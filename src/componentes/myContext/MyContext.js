@@ -15,7 +15,7 @@ const CustomProvider = ({children}) =>{
     const [cantidadTotal, setCantidadTotal] = useState(0)
     const [carrito, setCarrito] = useState ([])
     const [precioTotal, setPrecioTotal] = useState(0)
-    
+    const [usuario, setUsuario] = useState({})
     
 ///////////////////////////////////
 
@@ -64,15 +64,23 @@ const CustomProvider = ({children}) =>{
     }
     /////////////////////////////////////
 
-    
+    const formulario = (nombre,apellido, email) => {
+        setUsuario({
+            nombre: nombre,
+            apellido: apellido,
+            email: email
+        })
+    }
 
     const valorDelContexto = {
         cantidadTotal,
         carrito,
         precioTotal,
+        usuario,
         agregarAlCarrito,
         borrarDelCarrito,
-        limpiarElCarrito
+        limpiarElCarrito,
+        formulario
     }
 
     return (

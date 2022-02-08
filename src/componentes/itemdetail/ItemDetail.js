@@ -29,8 +29,8 @@ function ItemDetail({cuadro}) {
                 
                 <p>{cuadro.nombre}</p>
                 <p>Categoria:{cuadro.categoria}</p>
-                <p>{cuadro.precio}</p>
-                <p>{cuadro.medidas}</p>
+                <p>${cuadro.precio}</p>
+                <p>{cuadro.medidas}cm</p>
                 {mostrar ? (
                     <ItemCount stock ={5} inicial = {1} onAdd = {onAdd} borrar={borrar} agregarAlCarrito={agregarAlCarrito} producto={cuadro} />
 
