@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/React-desafios/static/css/main.ddc0f261.chunk.css",
+    "main.js": "/React-desafios/static/js/main.cf59cea1.chunk.js",
+    "main.js.map": "/React-desafios/static/js/main.cf59cea1.chunk.js.map",
+    "runtime-main.js": "/React-desafios/static/js/runtime-main.67b589a4.js",
+    "runtime-main.js.map": "/React-desafios/static/js/runtime-main.67b589a4.js.map",
+    "static/css/2.58a45539.chunk.css": "/React-desafios/static/css/2.58a45539.chunk.css",
+    "static/js/2.4f607bca.chunk.js": "/React-desafios/static/js/2.4f607bca.chunk.js",
+    "static/js/2.4f607bca.chunk.js.map": "/React-desafios/static/js/2.4f607bca.chunk.js.map",
+    "index.html": "/React-desafios/index.html",
+    "static/css/2.58a45539.chunk.css.map": "/React-desafios/static/css/2.58a45539.chunk.css.map",
+    "static/css/main.ddc0f261.chunk.css.map": "/React-desafios/static/css/main.ddc0f261.chunk.css.map",
+    "static/js/2.4f607bca.chunk.js.LICENSE.txt": "/React-desafios/static/js/2.4f607bca.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.67b589a4.js",
+    "static/css/2.58a45539.chunk.css",
+    "static/js/2.4f607bca.chunk.js",
+    "static/css/main.ddc0f261.chunk.css",
+    "static/js/main.cf59cea1.chunk.js"
+  ]
+}
